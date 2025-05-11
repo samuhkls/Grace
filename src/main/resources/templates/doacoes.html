@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" th:href="@{/css/base.css}" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../../../projeto-grace-main/projeto-grace-main/html%20PI/css/style.css">
+    <title>Página de Doações</title>
+</head>
+<body class="doacao">
+<header class="header">
+    <div class="logo">
+        <img src="../../../../../../projeto-grace-main/projeto-grace-main/html%20PI/imagens/logoGrace.jpeg" alt="Grace">
+    </div>
+    <nav>
+        <ul class="menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sobrenos.html">Sobre Nós</a></li>
+            <li><a href="nossosprojetos.html">Nossos Projetos</a></li>
+            <li><a href="cultos.html">Cultos</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+    <section class="intro">
+        <h1>Faça a Diferença com Sua Doação</h1>
+        <p>Ajude-nos a transformar vidas através de suas doações. Veja como você pode contribuir!</p>
+    </section>
+
+    <br>
+    <section id="itens-doacao">
+        <h2>Itens que Podem Ser Doados</h2>
+        <div class="item-list">
+            <div class="item">
+                <h3>Produtos de Higiene</h3>
+                <p>Sabão, shampoo, pasta de dente, etc.</p>
+            </div>
+            <div class="item">
+                <h3>Alimentos Não Perecíveis</h3>
+                <p>Arroz, feijão, enlatados, etc.</p>
+            </div>
+            <div class="item">
+                <h3>Roupas em Bom Estado</h3>
+                <p>Roupas para adultos e crianças.</p>
+            </div>
+            <div class="item">
+                <h3>Calçados</h3>
+                <p>Calçados em bom estado.</p>
+            </div>
+            <div class="item">
+                <h3>Brinquedos</h3>
+                <p>Brinquedos novos ou usados em bom estado.</p>
+            </div>
+            <div class="item">
+                <h3>Livros</h3>
+                <p>Livros infantis e adultos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="formas-doacao">
+        <h2>Como Doar</h2>
+        <div class="doacao-card">
+            <h3>Doação Online</h3>
+            <p>Contribua de forma rápida e segura.</p>
+            <p>Clique no botão abaixo para ser direcionado para o WhatsApp.</p>
+            <button onclick="doarOnline()">Doar Agora</button>
+        </div>
+        <div class="doacao-card">
+            <h3>Doação Presencial</h3>
+            <p>Visite-nos no seguinte endereço:</p>
+            <p>Rua Arnaldo De Oliveira Barreto, 488 - Presidente Altino, Osasco - São Paulo</p>
+            <p>Horário de Atendimento:</p>
+            <ul>
+                <li>Quarta-Feira: 19:30h às 21h</li>
+                <li>Quinta-Feira: 14:30h às 16h</li>
+                <li>Sábado: 8h às 11h</li>
+                <li>Domingo: 8h às 11h e 18h às 21h</li>
+            </ul>
+        </div>
+        <div class="doacao-card">
+            <h3>Doação via QR Code</h3>
+            <p>Escaneie o QR Code abaixo para fazer uma doação via Pix:</p>
+            <img src="../../../../../../projeto-grace-main/projeto-grace-main/html%20PI/imagens/qrcode-pix1.png" alt="QR Code para Doação via Pix" style="width: 200px; height: 200px;">
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-left">
+            <h2>Igreja Pentecostal Nova Sião</h2>
+            <p>Rua Arnaldo De Oliveira Barreto, 488</p>
+            <p>Presidente Altino - Osasco/SP</p>
+            <p>06213-080</p>
+            <p>(11) 96788-2241</p>
+            <div class="social-media">
+                <a href="https://instagram.com/ip_novasiao_altino" target="_blank"><img src="../../../../../../projeto-grace-main/projeto-grace-main/html%20PI/imagens/logo.Instagram.avif" alt="Instagram"></a>
+                <span></span>
+                <span></span>
+                <a href="https://wa.me/11947341179" target="_blank"><img src="../../../../../../projeto-grace-main/projeto-grace-main/html%20PI/imagens/logo%20whatsapp.png" alt="WhatsApp"></a>
+            </div>
+        </div>
+        <div class="footer-right">
+            <div id="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.127925397274!2d-46.764810399999995!3d-23.5279009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ceff3d1e09415b%3A0xcfca1f766e3febad!2sR.%20Arnaldo%20de%20Oliveira%20Barreto%2C%20488%20-%20Pres.%20Altino%2C%20Osasco%20-%20SP%2C%2006213-080!5e0!3m2!1spt-BR!2sbr!4v1744917307057!5m2!1spt-BR!2sbr" width="600" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 - Igreja Pentecostal Nova Sião</p>
+        <p>Endereço: Rua Arnaldo De Oliveira Barreto, 488</p>
+        <p>Bairro: Presidente Altino - Osasco/SP - CEP: 06213-080</p>
+
+    </div>
+</footer>
+<script src="../../../../../../projeto-grace-main/projeto-grace-main/html%20PI/js/script.js"></script>
+</body>
+</html>

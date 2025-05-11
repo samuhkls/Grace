@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Login</title>
+
+    <link rel="stylesheet" th:href="@{/css/base.css}" />
+    <link rel="stylesheet" th:href="@{/css/login.css}" />
+</head>
+
+<body class="login">
+
+<div class="login-container">
+    <h2>Login</h2>
+    <form id="login-form">
+        <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+        </div>
+        <input type="submit" value="Entrar">
+    </form>
+    <p></p>
+    <div class="forgot-password">
+        <a href="redefinirSenha.html" target="_blank">Esqueci minha senha</a>
+    </div>
+    <p></p>
+    <div class="register">
+        <p>Ainda não tem uma conta?
+            <a href="cadastro.html" target="_blank">Cadastre-se</a></p>
+    </div>
+</div>
+
+<script th:src="@{/js/script.js}"></script>
+
+</body>
+</html>

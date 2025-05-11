@@ -1,0 +1,811 @@
+.primeira{
+
+.header {
+    display: flex;
+    align-items: center;
+    padding:  30px; /* Ajuste o espaçamento vertical e horizontal conforme necessário */
+    background-color: #fffefe; /* Cor de fundo opcional */
+    background: linear-gradient(90deg, #6b8fe3, #afd9ea);
+}
+
+.logo {
+    margin-left: 140px;
+    margin-right: 30px; /* Espaço entre o logo e os links */
+}
+
+.logo img {
+    height: 120px; /* Ajuste a altura do logo conforme necessário */
+    width: 120px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center; /* Centraliza os itens do menu horizontalmente */
+    align-items: center; /* Centraliza os itens do menu verticalmente dentro da header */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 190px;
+    
+}
+
+.menu li {
+    margin-right: 80px; /* Espaço entre os itens do menu */
+}
+
+.menu li:last-child {
+    margin-right: 0; /* Remove a margem do último item */
+}
+
+.menu a {
+    text-decoration: none;
+    color: #000000; /* Cor dos links */
+    font-size: 20px; /* Tamanho da fonte dos links */
+}
+.menu a:hover { /* Estilos no hover */
+    color: #ffffff;
+    cursor: pointer; /* Opcional: muda o cursor para indicar que é interativo */
+    padding:auto;
+  }
+.button-container {
+    margin-left: auto; /* Empurra o botão para a direita */
+}
+
+.button {
+    background-color:white; /* Cor de fundo vermelha */
+    color: #000000; /* Cor do texto branco */
+    border: none;
+    padding: 20px 30px; /* Espaçamento interno do botão */
+    border-radius: 10px; /* Deixa as bordas arredondadas */
+    cursor: pointer;
+    font-size: 20px;
+    text-decoration: none; /* Remove sublinhado se o botão for um link */
+    transition: background-color 0.3s ease, font-size 0.3s ease, padding 0.3s ease;
+  /* Adiciona transições suaves para as propriedades que serão alteradas */
+  margin-right: 90px;
+}
+.button:hover {
+    background-color: #ffffff; /* Background color on hover (darker green) */
+    color: #000000;
+    font-size: 22px; /* Font size on hover */
+    padding: 20px 30px; /* Increases padding on hover */
+    border:2px solid blue; /* Adds a 2px solid blue border on hover */;
+  }
+
+ 
+.banner-container {
+    position: relative; /* Necessário para posicionar o texto sobre a imagem */
+    width: 100%; /* Garante que o container ocupe toda a largura */
+    /* Adicione uma altura mínima para o banner, se necessário */
+    /* min-height: 300px; */
+  }
+  
+  .banner-container img {
+    display: block; /* Remove espaço extra abaixo da imagem */
+    width: 100%; /* Faz a imagem ocupar toda a largura do container */
+    height: auto; /* Mantém a proporção da imagem */
+    filter: brightness(80%); /* Opcional: escurece um pouco a imagem para melhorar o contraste com o texto */
+  }
+  
+  .banner-text {
+    position: absolute; /* Posiciona o texto sobre a imagem */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza o texto */
+    color: rgb(0, 0, 0); /* Cor do texto branco para boa visibilidade sobre a imagem */
+    text-align: center; /* Centraliza o texto horizontalmente */
+    width: 80%; /* Largura máxima do bloco de texto */
+    padding: 415px; /* Adiciona um pouco de espaço ao redor do texto */
+    /* Opcional: adiciona um fundo semi-transparente para melhorar a legibilidade */
+    background-color: rgba(242, 244, 246, 0.352);
+    border-radius: 10px; /* Opcional: bordas arredondadas para o fundo do texto */
+    font-size: 17px;
+  }
+  
+  .banner-text h1 {
+    font-size: 2.8em; /* Aumenta o tamanho do título */
+    margin-bottom: 10px;
+   
+  }
+  
+  .banner-text p {
+    font-size: 27px; /* Aumenta o tamanho do parágrafo */
+    margin-bottom: 20px;
+    
+  }
+  
+  .banner-text input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    margin-bottom: 10px;
+    width: 70%; /* Ajuste a largura do campo de busca */
+  }
+  
+  .banner-text button {
+    padding: 10px 20px;
+    background-color: #007bff; /* Cor primária para o botão */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease; /* Adiciona uma transição suave para o hover */
+  }
+  .banner-text button:hover {
+    background-color: #0056b3; /* Cor mais escura no hover */
+  }
+
+footer {
+    background-color: #ffffff;
+    background: linear-gradient(90deg, #6b8fe3, #afd9ea);
+    color: #000000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+   
+}
+
+.footer-left {
+    width: 40%;
+   margin-left: 70px;
+}
+
+.footer-right {
+    width: 50%;
+    margin-right: 50px;
+}
+
+.social-media a {
+    margin: 0 2px;
+}
+
+.footer-left .social-media a img {
+  width: 30px; /* Set desired width */
+  height: 30px; /* Set desired height, maintain aspect ratio */
+}
+
+#map {
+    width: 100%;
+    height: 200px; /* Ajuste a altura conforme necessário */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+}
+
+  /* Media Queries para Responsividade */
+@media (max-width: 768px) {
+  .header {
+      flex-direction: column; /* Muda a direção do flex para coluna em telas menores */
+      align-items: flex-start; /* Alinha os itens à esquerda */
+  }
+}
+}
+}
+.login{
+   
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #007bff;
+  background-size: cover; /* Faz a imagem cobrir todo o fundo */
+  background-position: center; /* Centraliza a imagem */
+
+
+
+.login-container {
+  background-color: #d2e3e4; /* Fundo branco com opacidade */
+  border-radius: 8px; /* Bordas arredondadas */
+  padding:50px;
+  max-width: 400px;
+  margin: 100px auto; /* Centraliza verticalmente */
+ 
+}
+
+h2 {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 30px;
+  margin-right: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 17px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007BFF; /* Cor do botão */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 9px;
+  font-size: 15px;
+}
+
+button:hover {
+  background-color: #0056b3; /* Cor do botão ao passar o mouse */
+}
+
+.forgot-password {
+  text-align: center;
+  margin-top: 10px;
+}
+.register{
+  text-align: center;
+  margin-top: 15px;
+}
+/* Estilos base para telas menores (celulares) */
+.elemento {
+  font-size: 12px;
+  padding: 8px;
+}
+}
+
+@media (max-width: 480px) {
+
+  .login-container {
+      padding: 20px; /* Reduz ainda mais o padding */
+  }
+
+  h2 {
+      font-size: 1.2em; /* Ajusta o tamanho da fonte do título */
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="email"] {
+      padding: 5px; /* Reduz o padding dos inputs */
+  }
+
+  button {
+      font-size: 12px; /* Ajusta o tamanho da fonte do botão */
+  }
+}
+
+
+
+.cultos{
+  .header {
+    display: flex;
+    align-items: center;
+    padding:  30px; /* Ajuste o espaçamento vertical e horizontal conforme necessário */
+    background-color: #fffefe; /* Cor de fundo opcional */
+    background: linear-gradient(90deg, #6b8fe3, #afd9ea);
+}
+
+.logo {
+    margin-left: 140px;
+    margin-right: 30px; /* Espaço entre o logo e os links */
+}
+
+.logo img {
+    height: 120px; /* Ajuste a altura do logo conforme necessário */
+    width: 120px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center; /* Centraliza os itens do menu horizontalmente */
+    align-items: center; /* Centraliza os itens do menu verticalmente dentro da header */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 190px;
+    
+}
+
+.menu li {
+    margin-right: 80px; /* Espaço entre os itens do menu */
+}
+
+.menu li:last-child {
+    margin-right: 0; /* Remove a margem do último item */
+}
+
+.menu a {
+    text-decoration: none;
+    color: #000000; /* Cor dos links */
+    font-size: 20px; /* Tamanho da fonte dos links */
+}
+.menu a:hover { /* Estilos no hover */
+    color: #ffffff;
+    cursor: pointer; /* Opcional: muda o cursor para indicar que é interativo */
+    padding:auto;
+  }
+
+ .container{
+  background-color: #f7fbff;
+ }
+ 
+     .agenda-container {
+            background-color:#ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width:100%;
+            max-width: 96%;
+            margin-left: 0px;
+            
+        }
+
+        .agenda-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            text-align: center;
+            margin-left: 200px;
+        }
+
+        .agenda-header img {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+        }
+
+        .agenda-header h1 {
+            color: #000000;
+            font-size: 2.2em;
+            margin: 0;
+           text-align: center;
+            margin-left: 400px;
+        }
+
+        .day-schedule {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            background-color: #ffffff;
+            border-left: 5px solid #14bbd1; /* Cor de destaque */
+            color: #000000;
+        }
+
+        .day-schedule:nth-child(even) {
+            border-left-color: #113d69; /* Outra cor de destaque para alternar */
+        }
+
+        .day-schedule h2 {
+            color: #020202;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        .event {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #000000;
+        }
+
+        .event:last-child {
+          border-bottom: 1px solid #000000;
+        }
+
+        .event span {
+            color: #555;
+        }
+
+        .event .time {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .pastor-info {
+            text-align: center;
+            color: #000000;
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+  
+  footer {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(90deg, #6b8fe3, #afd9ea);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+   
+}
+
+.footer-left {
+    width: 40%;
+   margin-left: 70px;
+}
+
+.footer-right {
+    width: 50%;
+    margin-right: 50px;
+}
+
+.social-media a {
+    margin: 0 2px;
+}
+
+.footer-left .social-media a img {
+  width: 30px; /* Set desired width */
+  height: 30px; /* Set desired height, maintain aspect ratio */
+}
+
+#map {
+    width: 100%;
+    height: 200px; /* Ajuste a altura conforme necessário */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+}
+}
+
+.redefinirSenha{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #007bff;
+  background-size: cover; /* Faz a imagem cobrir todo o fundo */
+  background-position: center; /* Centraliza a imagem */
+
+
+
+.login-container {
+  background-color: #d2e3e4; /* Fundo branco com opacidade */
+  border-radius: 8px; /* Bordas arredondadas */
+  padding:50px;
+  max-width: 400px;
+  margin: 100px auto; /* Centraliza verticalmente */
+ 
+}
+
+h2 {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 30px;
+  margin-right: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="password"] {
+  width: 100%;
+  padding: 17px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007BFF; /* Cor do botão */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 6px;
+  font-size: 15px;
+}
+
+button:hover {
+  background-color: #0056b3; /* Cor do botão ao passar o mouse */
+  
+}
+
+.forgot-password {
+  text-align: center;
+  margin-top: 10px;
+}
+.register{
+  text-align: center;
+  margin-top: 15px;
+}
+/* Estilos base para telas menores (celulares) */
+.elemento {
+  font-size: 12px;
+  padding: 8px;
+}
+}
+
+.cadastro{
+  
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #007bff;
+  background-size: cover; /* Faz a imagem cobrir todo o fundo */
+  background-position: center; /* Centraliza a imagem */
+
+
+
+.login-container {
+  background-color: #d2e3e4; /* Fundo branco com opacidade */
+  border-radius: 8px; /* Bordas arredondadas */
+  padding:30px;
+  max-width: 400px;
+  margin: 100px auto; /* Centraliza verticalmente */
+}
+
+h2 {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 30px;
+  margin-right: 30px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 17px;
+  border: 1px solid #cccccc;
+  border-radius: 7px;
+}
+
+.button-container {
+  margin-left: auto; /* Empurra o botão para a direita */
+}
+
+.button {
+  width: 100%;
+  padding: 10px 160px;
+  background-color: #007BFF; /* Cor do botão */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 9px;
+  font-size: 15px;
+  text-decoration: none; /* Remove sublinhado se o botão for um link */
+}
+.button:hover {
+  background-color: #0056b3; /* Background color on hover (darker green) */
+  color:white;
+}
+
+.forgot-password {
+  text-align: center;
+  margin-top: 10px;
+}
+.register{
+  text-align: center;
+  margin-top: 15px;
+}
+/* Estilos base para telas menores (celulares) */
+.elemento {
+  font-size: 12px;
+  padding: 8px;
+}
+}
+
+.doacao{
+  .header {
+    display: flex;
+    align-items: center;
+    padding:  30px; /* Ajuste o espaçamento vertical e horizontal conforme necessário */
+    background-color: #fffefe; /* Cor de fundo opcional */
+    background: linear-gradient(90deg, #6b8fe3, #afd9ea);
+}
+
+.logo {
+    margin-left: 140px;
+    margin-right: 30px; /* Espaço entre o logo e os links */
+}
+
+.logo img {
+    height: 120px; /* Ajuste a altura do logo conforme necessário */
+    width: 120px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center; /* Centraliza os itens do menu horizontalmente */
+    align-items: center; /* Centraliza os itens do menu verticalmente dentro da header */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 190px;
+    
+}
+
+.menu li {
+    margin-right: 80px; /* Espaço entre os itens do menu */
+}
+
+.menu li:last-child {
+    margin-right: 0; /* Remove a margem do último item */
+}
+
+.menu a {
+    text-decoration: none;
+    color: #000000; /* Cor dos links */
+    font-size: 20px; /* Tamanho da fonte dos links */
+}
+.menu a:hover { /* Estilos no hover */
+    color: #ffffff;
+    cursor: pointer; /* Opcional: muda o cursor para indicar que é interativo */
+    padding:auto;
+  }
+
+/* Estilo do Main */
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.intro h1 {
+  font-size: 2.5em;
+  color: #000000;
+}
+
+.intro p {
+  font-size: 1.2em;
+  color: #4d4c4c;
+}
+
+/* Estilo dos Itens de Doação */
+#itens-doacao {
+  margin-bottom: 40px;
+}
+
+.item-list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.item {
+  background: #85ceeb69;
+  border: 1px solid #53a268;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px;
+  flex: 1 1 calc(30% - 20px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.item:hover {
+  transform: scale(1.05);
+}
+
+.item h3 {
+  color: #000000;
+}
+
+/* Estilo das Formas de Doação */
+#doacao-card {
+  margin-bottom: 30px;
+}
+
+.doacao-card {
+  background: #15bdeb0c;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 17px;
+}
+
+.doacao-card h3 {
+  color: #000000;
+}
+
+.doacao-card button {
+  background: #000000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.doacao-card button:hover {
+  background: #2575fc;
+}
+
+/* Estilo do Footer */
+footer {
+  background-color: #ffffff;
+  background: linear-gradient(90deg, #6b8fe3, #afd9ea);
+  color: #000000;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+ 
+}
+
+.footer-left {
+  width: 40%;
+ margin-left: 70px;
+}
+
+.footer-right {
+  width: 50%;
+  margin-right: 50px;
+}
+
+.social-media a {
+  margin: 0 2px;
+}
+
+.footer-left .social-media a img {
+width: 30px; /* Set desired width */
+height: 30px; /* Set desired height, maintain aspect ratio */
+}
+
+#map {
+  width: 100%;
+  height: 200px; /* Ajuste a altura conforme necessário */
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+
+}
