@@ -26,4 +26,9 @@ public class MappingController {
         return "login";
     }
 
+    @GetMapping("/cadastro")
+    public String cadastro(){
+        return "cadastro";
+    }
+
 }

@@ -12,7 +12,7 @@
 
 <div class="login-container">
     <h2>Cadastrar Novo Usuário</h2>
-    <form id="cadastro-form">
+    <form id="cadastro-form" th:action="@{/usuarios/cadastrar}" method="post">
         <div class="form-group">
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" required>
@@ -31,7 +31,7 @@
         </div>
 
         <div class="button-container">
-            <a href="login.html" target="_blank" class="button">Cadastrar</a>
+            <button type="submit" class="button">Cadastrar</button>
         </div>
     </form>
 </div>
