@@ -10,13 +10,13 @@ public class UsuarioService {
 
     private UsuarioRepository usuarioRepository;
 
-    public Usuario cadastrarMembro(String nome, String email, String senha) {
+    public void cadastrarMembro(String nome, String email, String senha) {
         Usuario usuario = new Usuario();
         usuario.setNome(nome);
         usuario.setEmail(email);
         usuario.setSenha(senha);
         usuario.setTipo(Grupo.MEMBRO);
-        return usuarioRepository.save(usuario);
+        usuarioRepository.save(usuario);
     }
 
 }
