@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" th:href="@{/css/styleadm.css}"/>
+    <title>Painel de Administração - Doações Igreja</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img th:src="@{/imagens/logoGrace.jpeg}" alt="Grace"/>
+        </div>
+        <nav>
+            <div class="texto">
+                <p>Painel de Administração - Doações Igreja</p>
+            </div>
+            <ul class="menu">
+                <li><a th:href="@{/}">Início</a></li>
+            </ul>
+            <li><a th:href="@{/usuarios/logout}">Sair</a></li>
+
+        </nav>
+    </header>
+
+<main>
+    <section class="summary-cards" aria-label="Resumo de doações e solicitações">
+        <article class="card" role="region" aria-labelledby="donations-title">
+            <div class="icon-circle" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="36" width="36" viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 
+                    7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 
+                    22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+            </div>
+            <div class="card-content">
+                <h2 id="donations-count">157</h2> <p id="donations-title">Doações Realizadas</p>
+            </div>
+        </article>
+
+        <article class="card" role="region" aria-labelledby="requests-title">
+            <div class="icon-circle" aria-hidden="true" style="background: #d58939;">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="36" width="36" viewBox="0 0 24 24">
+                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 
+                    3 1.34 3 3 3zm-8 0c1.66 0 
+                    3-1.34 3-3S9.66 5 8 5 5 
+                    6.34 5 8s1.34 3 3 3zm0 2c-2.33 
+                    0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                </svg>
+            </div>
+            <div class="card-content">
+                <h2 id="requests-count">5</h2> <p id="requests-title">Solicitações de Doações Pendentes</p>
+            </div>
+        </article>
+    </section>
+
+    <section aria-label="Controle de estoque e solicitações">
+        <nav class="tabs" role="tablist" aria-label="Navegação entre estoque de entradas, saídas, itens doados e solicitações recebidas">
+            <button class="tab active" id="tab-in" role="tab" aria-selected="true" aria-controls="inventory-in" tabindex="0">
+                Estoque Entradas
+            </button>
+            <button class="tab" id="tab-out" role="tab" aria-selected="false" aria-controls="inventory-out" tabindex="-1">
+                Estoque Saídas
+            </button>
+            <button class="tab" id="tab-donated" role="tab" aria-selected="false" aria-controls="inventory-donated" tabindex="-1">
+                Itens Doados
+            </button>
+            <button class="tab" id="tab-requests" role="tab" aria-selected="false" aria-controls="received-requests" tabindex="-1">
+                Solicitações Recebidas
+            </button>
+        </nav>
+        
+        <div id="inventory-in" role="tabpanel" aria-labelledby="tab-in" class="active">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Quantidade</th>
+                        <th scope="col">Data de Entrada</th>
+                    </tr>
+                </thead>
+                <tbody id="stock-in-body">
+                    <tr>
+                        <td>Alimentos</td>
+                        <td>Arroz 5kg</td>
+                        <td>25 unidades</td>
+                        <td>15/05/2025</td>
+                    </tr>
+                    <tr>
+                        <td>Roupas</td>
+                        <td>Camisetas adulto M</td>
+                        <td>40 peças</td>
+                        <td>14/05/2025</td>
+                    </tr>
+                    <tr>
+                        <td>Produtos de Higiene</td>
+                        <td>Sabonete</td>
+                        <td>60 unidades</td>
+                        <td>12/05/2025</td>
+                    </tr>
+                    <tr>
+                        <td>Brinquedos</td>
+                        <td>Bonecas</td>
+                        <td>12 unidades</td>
+                        <td>10/05/2025</td>
+                    </tr>
+                    <tr>
+                        <td>Alimentos</td>
+                        <td>Feijão 1kg</td>
+                        <td>30 pacotes</td>
+                        <td>08/05/2025</td>
+                    </tr>
+                    <tr>
+                        <td>Roupas</td>
+                        <td>Calças Jeans P</td>
+                        <td>15 peças</td>
+                        <td>07/05/2025</td>
+                    </tr>
+                    <tr>
+                        <td>Produtos de Higiene</td>
+                        <td>Pasta de Dente</td>
+                        <td>50 unidades</td>
+                        <td>05/05/2025</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div id="inventory-out" role="tabpanel" aria-labelledby="tab-out" class="hidden">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Quantidade</th>
+                        <th scope="col">Data de Saída</th>
+                    </tr>
+                </thead>
+                <tbody id="stock-out-body">
+                    <tr>
+                        <td>Alimentos</td>
+                        <td>Arroz 5kg</td>
+                        <td>10 unidades</td>
+                        <td>18/05/2025</td>
+                    </tr>
+                    <tr>
+                        <td>Roupas</td>
+                        <td>Camisetas adulto M</td>
+                        <td>15 peças</td>
+                        <td>17/05/2025</td>
+                    </tr>
+                    <tr>
+                        <td>Produtos de Higiene</td>
+                        <td>Sabonete</td>
+                        <td>20 unidades</td>
+                        <td>16/05/2025</td>
+                    </tr>
+                    <tr>
+                        <td>Brinquedos</td>
+                        <td>Bonecas</td>
+                        <td>5 unidades</td>
+                        <td>15/05/2025</td>
+                    </tr>
+                    <tr>
+                        <td>Alimentos</td>
+                        <td>Feijão 1kg</td>
+                        <td>12 pacotes</td>
+                        <td>14/05/2025</td>
+                    </tr>
+                    <tr>
+                        <td>Roupas</td>
+                        <td>Calças Jeans P</td>
+                        <td>8 peças</td>
+                        <td>13/05/2025</td>
+                    </tr>
+                    <tr>
+                        <td>Produtos de Higiene</td>
+                        <td>Pasta de Dente</td>
+                        <td>25 unidades</td>
+                        <td>11/05/2025</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div id="inventory-donated" role="tabpanel" aria-labelledby="tab-donated" class="hidden">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Item</th>
+                        <th scope="col">Quantidade</th>
+                        <th scope="col">Beneficiário</th>
+                        <th scope="col">Data da Doação</th>
+                        <th scope="col">Responsável</th>
+                    </tr>
+                </thead>
+                <tbody id="stock-donated-body">
+                    <tr>
+                        <td>Alimentos</td>
+                        <td>Arroz 5kg</td>
+                        <td>5 unidades</td>
+                        <td>Família Silva</td>
+                        <td>18/05/2025</td>
+                        <td>Joana Pereira</td>
+                    </tr>
+                    <tr>
+                        <td>Roupas</td>
+                        <td>Camisetas adulto M</td>
+                        <td>10 peças</td>
+                        <td>Abrigo Esperança</td>
+                        <td>17/05/2025</td>
+                        <td>Carlos Mendes</td>
+                    </tr>
+                    <tr>
+                        <td>Produtos de Higiene</td>
+                        <td>Sabonete</td>
+                        <td>15 unidades</td>
+                        <td>Lar dos Idosos</td>
+                        <td>16/05/2025</td>
+                        <td>Maria Oliveira</td>
+                    </tr>
+                    <tr>
+                        <td>Brinquedos</td>
+                        <td>Bonecas</td>
+                        <td>3 unidades</td>
+                        <td>Creche Municipal</td>
+                        <td>15/05/2025</td>
+                        <td>Ana Santos</td>
+                    </tr>
+                    <tr>
+                        <td>Alimentos</td>
+                        <td>Feijão 1kg</td>
+                        <td>8 pacotes</td>
+                        <td>Família Oliveira</td>
+                        <td>14/05/2025</td>
+                        <td>Pedro Almeida</td>
+                    </tr>
+                    <tr>
+                        <td>Roupas</td>
+                        <td>Calças Jeans P</td>
+                        <td>5 peças</td>
+                        <td>Centro Comunitário</td>
+                        <td>12/05/2025</td>
+                        <td>Fernanda Costa</td>
+                    </tr>
+                    <tr>
+                        <td>Produtos de Higiene</td>
+                        <td>Pasta de Dente</td>
+                        <td>10 unidades</td>
+                        <td>Associação de Moradores</td>
+                        <td>10/05/2025</td>
+                        <td>Marcelo Lima</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="received-requests" role="tabpanel" aria-labelledby="tab-requests" class="hidden">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">ID da Solicitação</th>
+                        <th scope="col">Nome do Solicitante</th>
+                        <th scope="col">Email do Solicitante</th>
+                        <th scope="col">Tipo de Doação</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Data da Solicitação</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="request-body"> </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script th:src="@{/js/scriptadm.js}"></script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grace - Receptor de Doações</title>
+    <link rel="stylesheet" th:href="@{/css/receptor.css}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    
+</head>
+<body>
+ <header class="header">
+        <div class="logo">
+            <img th:src="@{/imagens/logoGrace.jpeg}" alt="Grace"/>
+            </div>
+            <div class="texto">
+                <h2>Página do Receptor</h2>
+        <nav>
+            <ul class="menu">
+                <li><a th:href="@{/}">Início</a></li>
+        </nav>
+        </div>
+        <span></span>
+        <p></p>
+
+<div class="profile-nav-container">
+            <div class="profile-dropdown">
+                <button class="profile-btn" id="profileBtn">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Meu Perfil</span>
+                </button>
+                <div class="dropdown-content" id="dropdownContent">
+                    <a href="#" id="viewProfileLink"><i class="fas fa-user"></i> Visualizar Perfil</a>
+                </div>
+            </div>
+        </div>
+        </header>
+
+    <div class="main-container">
+        <section id="donationSection">
+            <h1 class="page-title">Solicitação de Doações</h1>
+            
+            <div class="tab-system">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="openTab('tab1', this)">Informações Pessoais</button>
+                    <button class="tab-btn" onclick="openTab('tab2', this)">Solicitação de Doação</button>
+                </div>
+                
+                <div id="tab1" class="tab-content active">
+                    <form id="personalInfoForm">
+                        <div class="form-group">
+                            <label for="nome" class="form-label">Nome Completo:</label>
+                            <input type="text" id="nome" name="nome" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="endereco" class="form-label">Endereço Completo:</label>
+                            <input type="text" id="endereco" name="endereco" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                         <label for="celular" class="form-label">Celular:</label>
+                         <input type="tel" id="celular" name="celular" class="form-control" required>
+                          </div>
+
+                           <div class="form-group">
+                           <label for="email" class="form-label">E-mail:</label>
+                           <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="integrantes" class="form-label">Quantidade de Integrantes na Família:</label>
+                            <input type="number" id="integrantes" name="integrantes" min="1" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input type="checkbox" id="tem_criancas" name="tem_criancas" class="form-check-input">
+                            <label for="tem_criancas">Tem crianças na família?</label>
+                        </div>
+                        
+                        <div id="childrenFields" class="children-fields">
+                            <h3 style="margin-bottom: 15px;">Informações sobre as Crianças</h3>
+                            <div id="childrenContainer"></div>
+                            <button type="button" class="btn btn-add" id="addChild"> 
+                                <i class="fas fa-plus"></i> Adicionar Criança
+                            </button>
+                        </div>
+                        
+                        <div class="form-group" style="margin-top: 30px;">
+                            <button type="button" class="btn btn-block" onclick="validatePersonalInfo()">
+                                Próximo <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div id="tab2" class="tab-content">
+                    <form id="donationRequestForm">
+                        <div class="form-group">
+                            <label for="tipo" class="form-label">Tipo de Doação Necessária:</label>
+                            <select id="tipo" name="tipo" class="form-control" required>
+                                <option value="">Selecione...</option>
+                                <option value="roupas">Roupas</option>
+                                <option value="alimentos">Alimentos</option>
+                                <option value="brinquedos">Brinquedos</option>
+                                <option value="produtos_higiene">Produtos de Higiene</option>
+                                <option value="outros">Outros</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="descricao" class="form-label">Descrição Detalhada:</label>
+                            <textarea id="descricao" name="descricao" rows="5" class="form-control" 
+                                      placeholder="Por favor, forneça detalhes como tamanhos de roupas, tipos específicos de alimentos, necessidades especiais, etc."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="urgencia" class="form-label">Nível de Urgência:</label>
+                            <select id="urgencia" name="urgencia" class="form-control">
+                                <option value="baixa">Baixa</option>
+                                <option value="media">Média</option>
+                                <option value="alta">Alta</option>
+                            </select>
+                        </div>
+                        
+                        <div class="alert alert-success" id="responseMessage"></div>
+                        
+                        <div class="form-group" style="display: flex; gap: 10px;">
+                            <button type="button" class="btn btn-secondary" style="flex: 1;" onclick="openTab('tab1', document.querySelector('.tab-btn'))">
+                                <i class="fas fa-arrow-left"></i> Voltar
+                            </button>
+                            <button type="submit" class="btn" style="flex: 2;">
+                                <i class="fas fa-paper-plane"></i> Enviar Solicitação
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <section class="profile-section" id="profileSection" style="display: none;"> <div class="profile-header">
+        <div class="profile-avatar">
+            <i class="fas fa-user"></i>
+        </div>
+        <div class="profile-info">
+            <h2 id="profileName"></h2> <p id="profileAddress"></p> <p id="profilePhone"></p><p id="profileEmail"></p> </div>
+    </div>
+    
+    <div class="requests-list">
+        <h2 style="margin-bottom: 20px;">Minhas Solicitações</h2>
+        
+        <div class="btn-new-request-container" style="text-align: center; margin-top: 20px;">
+            <button class="btn btn-primary btn-new-request" style="padding: 10px 20px; font-size: 1rem;">
+                <i class="fas fa-plus-circle"></i> Fazer Nova Solicitação
+            </button>
+        </div>
+    </div>          
+   </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Igreja Pentecostal Nova Sião</h3>
+                <p>Rua Arnaldo De Oliveira Barreto, 488</p>
+                <p>Presidente Altino - Osasco/SP</p>
+                <p>06213-080</p>
+                <p>(11) 96788-2241</p>
+                
+                <div class="social-links">
+                    <a href="https://instagram.com/ip_novasiao_altino" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/11967882241" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                   
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Horários de Funcionamento</h3>
+                <p>Segunda a Sexta: 9h - 18h</p>
+                <p>Sábado: 9h - 12h</p>
+                <p>Domingo: Cultos às 8h e 18h</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Localização</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.127925397274!2d-46.764810399999995!3d-23.5279009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ceff3d1e09415b%3A0xcfca1f766e3febad!2sR.%20Arnaldo%20de%20Oliveira%20Barreto%2C%20488%20-%20Pres.%20Altino%2C%20Osasco%20-%20SP%2C%2006213-080!5e0!3m2!1spt-BR!2sbr!4v1744917307057!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 Grace - Sistema de Doações. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+ <script th:src="@{/js/receptor.js}"></script>
+</body>
+</html>

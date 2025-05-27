@@ -1,41 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Login</title>
-
-    <link rel="stylesheet" th:href="@{/css/base.css}" />
-    <link rel="stylesheet" th:href="@{/css/login.css}" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" th:href="@{/css/login.css}"/>
+  <title>Página de Login</title>
+  <!-- Toastify CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
+<body>
 
-<body class="login">
-
-<div class="login-container">
+  <div class="login-container">
     <h2>Login</h2>
-    <form id="login-form">
-        <div class="form-group">
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" required>
-        </div>
-        <input type="submit" value="Entrar">
+    <form id="login-form" th:action="@{/usuarios/login}" method="post" autocomplete="off">
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com" />
+
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" name="senha" required placeholder="Digite sua senha" />
+
+      <button type="submit">Entrar</button>
     </form>
-    <p></p>
-    <div class="forgot-password">
-        <a href="redefinirSenha.html" target="_blank">Esqueci minha senha</a>
-    </div>
-    <p></p>
-    <div class="register">
-        <p>Ainda não tem uma conta?
-            <a href="cadastro.html" target="_blank">Cadastre-se</a></p>
-    </div>
-</div>
 
-<script th:src="@{/js/script.js}"></script>
+    <br>
+    <div class="links">
+      <p>Esqueceu a senha? <a href="redefinirSenha.html" target="_blank">Clique aqui</a></p>
+     <br>
+      <p>Ainda não tem conta? <a href="cadastro.html" target="_blank">Cadastre-se</a></p>
+    </div>
+  </div>
 
+  <!-- Toastify JS -->
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script th:src="@{/js/script.js}"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+   
+ 

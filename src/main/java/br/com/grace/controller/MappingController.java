@@ -10,20 +10,53 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class MappingController {
 
-    @GetMapping("/cultos")
-    public String cultos(){
-        System.out.println("entrou na rota");
-        return "cultos";
-    }
-
     @GetMapping("/")
-    public String index(){
+    public String index() {
         return "index";
     }
 
     @GetMapping("/login")
-    public String login(){
+    public String login() {
         return "login";
     }
 
+    @GetMapping("/adm")
+    public String adm() {
+        return "adm";
+    }
+
+    @GetMapping("/cadastro")
+    public String cadastro() {
+        return "cadastro";
+    }
+
+    @GetMapping("/cultos")
+    public String cultos() {
+        return "cultos";
+    }
+
+    @GetMapping("/doacoes")
+    public String doacoes() {
+        return "doacoes";
+    }
+
+    @GetMapping("/nossosprojetos")
+    public String nossosProjetos() {
+        return "nossosprojetos";
+    }
+
+    @GetMapping("/receptor")
+    public String receptor() {
+        return "receptor";
+    }
+
+    @GetMapping("/redefinir-senha")
+    public String redefinirSenha() {
+        return "redefinirSenha";
+    }
+
+    @GetMapping("/sobrenos")
+    public String sobreNos() {
+        return "sobrenos";
+    }
 }

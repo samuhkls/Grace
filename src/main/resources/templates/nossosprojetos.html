@@ -1,3 +1,207 @@
-<head xmlns:th="http://www.w3.org/1999/xhtml">
-    <link rel="stylesheet" th:href="@{/css/base.css}" />
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossos Projetos - Igreja Pentecostal Nova Sião</title>
+    <link rel="stylesheet" th:href="@{/css/nossosprojetos.css}"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+<body>
+<header class="header">
+        <div class="logo">
+            <img th:src="@{/imagens/logoGrace.jpeg}" alt="Grace"/>
+            </div>
+        <nav>
+            <ul class="menu">
+                <li><a th:href="@{/}">Inicio</a></li>
+                <li><a th:href="@{/sobrenos}">Sobre Nós</a></li>
+                <li><a th:href="@{/cultos}">Cultos</a></li>
+            </ul>
+        </nav>
+        </header>
+
+    <main>
+        
+
+        <section class="projects-section">
+            <div class="section-header">
+                <h2>Nossos Projetos Atuais</h2>
+                <p>Conheça as iniciativas que a Igreja Pentecostal Nova Sião realiza com dedicação</p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="imagens/marmitas.webp" alt="Doação de Marmitas para Moradores de Rua">
+                        <div class="project-badge">Ativo</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Alimento Fraterno: Marmitas para as Ruas</h3>
+                        <p>Preparamos e distribuímos marmitas nutritivas para moradores de rua em Osasco, oferecendo uma refeição quente e um gesto de cuidado.</p>
+                        <div class="project-progress">
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 70%;"></div>
+                            </div>
+                            <span>70% da meta de marmitas semanais alcançada</span>
+                        </div>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-utensils"></i>
+                                <span>Centenas de refeições entregues</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Ruas e viadutos de Osasco</span>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="imagens/cestabasica2.jpg" alt="Doação de Cestas Básicas para Famílias">
+                        <div class="project-badge">Ativo</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Amparo Familiar: Cestas Básicas para Famílias</h3>
+                        <p>Entregamos cestas básicas completas para famílias em situação de vulnerabilidade e necessidade, garantindo que tenham acesso a alimentos essenciais.</p>
+                        <div class="project-progress">
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 65%;"></div>
+                            </div>
+                            <span>65% da meta de famílias atendidas mensalmente</span>
+                        </div>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-basket-shopping"></i>
+                                <span>Dezenas de famílias assistidas</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-home"></i>
+                                <span>Presidente Altino e arredores</span>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="imagens/brinquedos.png" alt="Visitas a Orfanatos">
+                        <div class="project-badge">Ativo</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Carinho e Apoio: Visitas a Orfanatos</h3>
+                        <p>Realizamos visitas regulares a orfanatos da região, levando doações (brinquedos, roupas, materiais), promovendo atividades recreativas e oferecendo carinho às crianças.</p>
+                        <div class="project-progress">
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 50%;"></div>
+                            </div>
+                            <span>50% do planejamento anual de visitas</span>
+                        </div>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-child"></i>
+                                <span>Várias instituições beneficiadas</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-heart"></i>
+                                <span>Sorrisos e esperança compartilhados</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="section-header">
+                <h2>Compartilhando Esperança</h2>
+                <p>Depoimentos de pessoas impactadas por nossos projetos</p>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left"></i>
+                        <p>Receber a cesta básica da igreja fez uma enorme diferença para minha família neste mês. É um alívio saber que não estamos sozinhos. Sou muito grata pela ajuda!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="imagens/cone-mulher.png" alt="Foto da Ana Paula">
+                        <div>
+                            <h4>Ana Paula</h4>
+                            <span>Mãe beneficiada pelo projeto Cesta Solidária</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left"></i>
+                        <p>A marmita que recebi hoje me deu forças para seguir o dia. É bom saber que existem pessoas que se importam com quem está na rua. Que Deus abençoe essa igreja!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="imagens/icone-homem.png" alt="Foto do Carlos">
+                        <div>
+                            <h4>Carlos</h4>
+                            <span>Beneficiário do projeto Alimento Fraterno</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left"></i>
+                        <p>Eu adoro quando o pessoal da igreja vem aqui no orfanato. Eles trazem brinquedos, contam histórias e brincam com a gente. Fico muito feliz quando eles chegam!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="imagens/crianca.png" alt="Foto do Lucas">
+                        <div>
+                            <h4>Lucas, 8 anos</h4>
+                            <span>Criança atendida no orfanato</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+   
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Igreja Pentecostal Nova Sião</h3>
+                <p>Rua Arnaldo De Oliveira Barreto, 488</p>
+                <p>Presidente Altino - Osasco/SP</p>
+                <p>06213-080</p>
+                <p>(11) 96788-2241</p>
+                
+                <div class="social-links">
+                    <a href="https://instagram.com/ip_novasiao_altino" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/11967882241" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                   
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Horários de Funcionamento</h3>
+                <p>Segunda a Sexta: 9h - 18h</p>
+                <p>Sábado: 9h - 12h</p>
+                <p>Domingo: Cultos às 8h e 18h</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Localização</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.127925397274!2d-46.764810399999995!3d-23.5279009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ceff3d1e09415b%3A0xcfca1f766e3febad!2sR.%20Arnaldo%20de%20Oliveira%20Barreto%2C%20488%20-%20Pres.%20Altino%2C%20Osasco%20-%20SP%2C%2006213-080!5e0!3m2!1spt-BR!2sbr!4v1744917307057!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 Grace - Sistema de Doações. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

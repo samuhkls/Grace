@@ -1,41 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="stylesheet" th:href="@{/css/base.css}" />
-    <link rel="stylesheet" th:href="@{/css/login.css}" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Cadastro</title>
-    <link rel="stylesheet" href="../../../../../../projeto-grace-main/projeto-grace-main/html%20PI/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" th:href="@{/css/cadastro.css}"/>
+  <title>Página de Cadastro</title>
 </head>
-<body class="cadastro">
-
-<div class="login-container">
+<body>
+  <div class="container">
     <h2>Cadastrar Novo Usuário</h2>
-    <form id="cadastro-form">
-        <div class="form-group">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
-        </div>
-        <div class="form-group">
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" required>
-        </div>
-        <div class="form-group">
-            <label for="confirm-senha">Confirme a Senha:</label>
-            <input type="password" id="confirm-senha" name="confirm-senha" required>
-        </div>
+    <form id="cadastro-form" th:action="@{/usuarios/cadastrar}" method="post">
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required placeholder="Seu nome completo" />
+      </div>
 
-        <div class="button-container">
-            <a href="login.html" target="_blank" class="button">Cadastrar</a>
+      <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com" />
+      </div>
+
+      <div class="form-group">
+        <label>Tipo de Usuário:</label>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="tipoUsuario" value="DOADOR" checked>
+            <span class="radio-custom"></span>
+            <span>Doador</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="tipoUsuario" value="RECEPTOR">
+            <span class="radio-custom"></span>
+            <span>Receptor</span>
+          </label>
         </div>
+      </div>
+
+      <div class="form-group">
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required placeholder="Digite sua senha" />
+      </div>
+
+      <div class="form-group">
+        <label for="confirm-senha">Confirme a Senha:</label>
+        <input type="password" id="confirm-senha" required placeholder="Confirme sua senha" />
+      </div>
+
+      <div class="button-container">
+        <button type="submit" class="button">Cadastrar</button>
+      </div>
     </form>
-</div>
-
-<script src="../js/script.js"></script>
+  </div>
+  <script th:src="@{/js/cadastro.js}"></script>
 </body>
 </html>

@@ -1,44 +1,181 @@
-.login-container {
-  max-width: 400px;
-  margin: 50px auto;
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+/* Reset and base styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.login-container h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.login-container form {
+body {
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(90deg, #335ec0, #b4d9e8);
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: #f0f0f0;
 }
 
-.login-container label {
-  margin-bottom: 5px;
-  font-weight: bold;
+.login-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  padding: 18px 36px;
+  width: 100%;
+  max-width: 620px;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.25),
+              0 0 0 1px rgba(255, 255, 255, 0.1);
+  transition: box-shadow 0.3s ease;
 }
 
-.login-container input[type="text"],
-.login-container input[type="password"] {
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.login-container:hover {
+  box-shadow: 0 10px 40px rgba(74, 144, 226, 0.55),
+              0 0 0 1px rgba(255, 255, 255, 0.3);
 }
 
-.login-container input[type="submit"] {
-  padding: 10px;
-  background-color: #000;
-  color: #fff;
+h2 {
+  font-weight: 600;
+  font-size: 2.2rem;
+  margin-bottom: 32px;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.33);
+  letter-spacing: 1.2px;
+}
+
+form {
+  width: 100%;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #ffffff;
+  user-select: none;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 12px;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.15);
+  transition: background 0.3s, box-shadow 0.3s;
+  outline-offset: 2px;
 }
 
-.login-container input[type="submit"]:hover {
-  background-color: #333;
+input::placeholder {
+  color: rgba(238, 234, 234, 0.7);
+  font-style: italic;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  background: rgba(74, 144, 226, 0.5);
+  box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.5),
+              0 0 15px rgba(61, 131, 242, 0.9);
+  outline: none;
+}
+
+button {
+  background: linear-gradient(145deg, #a2e2ff, #223eb8);
+  color: #ffffff;
+  margin-left: 200px;
+  font-weight: 600;
+  font-size: 1.15rem;
+  padding: 14px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 6px 15px rgba(118, 75, 162, 0.7);
+  transition: all 0.35s ease;
+  cursor: pointer;
+  user-select: none;
+  border: none;
+  letter-spacing: 0.05em;
+  margin-top: 30px; /* espaço entre o último campo e o botão */
+}
+
+button:hover,
+button:focus {
+  background: linear-gradient(145deg, #6373ef, #2f2b76);
+  box-shadow: 0 10px 30px rgba(99, 13, 246, 0.85);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(35, 60, 205, 0.877);
+}
+
+.forgot-password,
+.register {
+  text-align: center;   /* Já está centralizado */
+  margin-top: 20px;
+  font-size: 0.95rem;
+  color: #ffffff;
+  display: block;       /* Mantém como bloco */
+}
+
+.forgot-password p,
+.register p {
+  margin: 0;            /* Remove margens padrão */
+  display: inline-block; /* Adicionado para melhor controle */
+  padding: 5px 10px;    /* Adiciona um pouco de espaço ao redor */
+  background: rgba(255, 255, 255, 0.1); /* Opcional: fundo sutil */
+  border-radius: 20px;  /* Opcional: bordas arredondadas */
+  transition: all 0.3s ease; /* Suaviza as transições */
+}
+
+.forgot-password a,
+.register a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.forgot-password a:hover,
+.register a:hover {
+  color: #a2e2ff;       /* Cor mais suave no hover */
+  text-shadow: 0 0 5px rgba(162, 226, 255, 0.5); /* Efeito sutil */
+}
+
+.forgot-password p:hover,
+.register p:hover {
+  background: rgba(255, 255, 255, 0.2); /* Efeito hover no fundo */
+  transform: translateY(-2px);           /* Levanta levemente */
+}
+
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 36px 24px;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  input[type="email"],
+  input[type="password"] {
+    font-size: 0.95rem;
+    padding: 12px 16px;
+  }
+  button {
+    padding: 12px;
+    font-size: 1rem;
+  }
 }
