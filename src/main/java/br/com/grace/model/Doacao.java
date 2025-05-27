@@ -1,8 +1,8 @@
 package br.com.grace.model;
 
 import jakarta.persistence.*;
+import java.time.LocalDateTime;
 
-import java.time.LocalDate;
 @Entity
 public class Doacao {
 
@@ -10,13 +10,19 @@ public class Doacao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nomeDoador;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuario usuario;
 
-    @Enumerated(EnumType.STRING)
-    private TipoDoacao tipo;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tipo_doacao_id", nullable = false)
+    private TipoDoacao tipoDoacao;
 
-    private LocalDate data;
+    private Integer quantidade;
 
+    private LocalDateTime dataHora;
+
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -25,27 +31,35 @@ public class Doacao {
         this.id = id;
     }
 
-    public String getNomeDoador() {
-        return nomeDoador;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setNomeDoador(String nomeDoador) {
-        this.nomeDoador = nomeDoador;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
-    public TipoDoacao getTipo() {
-        return tipo;
+    public TipoDoacao getTipoDoacao() {
+        return tipoDoacao;
     }
 
-    public void setTipo(TipoDoacao tipo) {
-        this.tipo = tipo;
+    public void setTipoDoacao(TipoDoacao tipoDoacao) {
+        this.tipoDoacao = tipoDoacao;
     }
 
-    public LocalDate getData() {
-        return data;
+    public Integer getQuantidade() {
+        return quantidade;
     }
 
-    public void setData(LocalDate data) {
-        this.data = data;
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public LocalDateTime getDataHora() {
+        return dataHora;
+    }
+
+    public void setDataHora(LocalDateTime dataHora) {
+        this.dataHora = dataHora;
     }
 }
