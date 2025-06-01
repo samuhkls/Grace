@@ -29,7 +29,30 @@ public class DoacaoService {
 
 
     public void salvar(Doacao doacao) { repo.save(doacao); }
-    public List<Doacao> listar() { return repo.findAll(); }
+    public List<Doacao> listar() {
+
+        System.out.println("DoacaoService.listar() - Entrando no método"); // Log de console
+        if (this.repo == null) {
+            System.out.println("DoacaoService.listar() - ERRO: this.repo é NULL!"); // Log de console
+            // Se isso acontecer, a injeção de dependência falhou.
+        } else {
+            System.out.println("DoacaoService.listar() - this.repo é: " + this.repo.getClass().getName()); // Log de console
+        }
+
+        // ----> COLOQUE UM BREAKPOINT AQUI <----
+        System.out.println("a");
+        List<Doacao> doacoesEncontradas = this.repo.findAll();
+        System.out.println("a");
+        // ----> COLOQUE OUTRO BREAKPOINT AQUI <----
+
+        if (doacoesEncontradas == null) {
+            System.out.println("DoacaoService.listar() - ATENÇÃO: repo.findAll() retornou NULL!"); // Log de console
+        } else {
+            System.out.println("DoacaoService.listar() - repo.findAll() retornou " + doacoesEncontradas.size() + " itens."); // Log de console
+        }
+        return doacoesEncontradas;
+    }
+
     public void realizarDoacao(Usuario usuario, Long tipoId, int quantidade) {
         Doacao doacao = new Doacao();
         doacao.setUsuario(usuario);

@@ -41,6 +41,11 @@ public class UsuarioController {
         }
     }
 
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate(); // limpa a sessão
