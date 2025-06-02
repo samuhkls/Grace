@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Carrega Toastify dinamicamente
     if (typeof Toastify === 'undefined') {
         const toastifyScript = document.createElement('script');
         toastifyScript.src = 'https://cdn.jsdelivr.net/npm/toastify-js';
@@ -15,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function initResetForm() {
-        const resetForm = document.getElementById('login-form'); // Usando o ID existente no HTML
+        const resetForm = document.getElementById('login-form');
         
         resetForm.addEventListener('submit', function(event) {
             event.preventDefault();
@@ -23,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const senha = document.getElementById('senha').value;
             const confirmSenha = document.getElementById('confirm-senha').value;
 
-            // Validações
+
             if (!senha || !confirmSenha) {
                 showToast("Por favor, preencha todos os campos.", "error");
                 return;
@@ -39,14 +38,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Simulação de envio para o servidor
             simulatePasswordReset(senha)
                 .then(() => {
                     showToast("Senha redefinida com sucesso! Redirecionando...", "success");
                     
-                    // Redireciona após 3 segundos
+
                     setTimeout(() => {
-                        window.location.href = 'login.html'; // Altere para a página desejada
+                        window.location.href = 'login.html';
                     }, 3000);
                 })
                 .catch(error => {
@@ -75,12 +73,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }).showToast();
     }
 
-    // Função simulada para reset de senha (substitua pela chamada real à API)
+
     function simulatePasswordReset(newPassword) {
         return new Promise((resolve, reject) => {
-            // Simula um delay de rede
+
             setTimeout(() => {
-                // Simula sucesso 90% das vezes para demonstração
+
                 if (Math.random() > 0.1) {
                     resolve();
                 } else {

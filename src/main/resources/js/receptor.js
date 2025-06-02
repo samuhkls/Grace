@@ -1,28 +1,23 @@
-// Dados do usuário, serão carregados/salvos no Local Storage
+
 const userData = {
     name: "",
     address: "",
     phone: "",
-    email: "", // NOVO: Adicionado campo de e-mail
+    email: "",
     familyMembers: 1,
     hasChildren: false,
     children: [],
 };
 
-// Chave para armazenar informações pessoais do usuário no Local Storage
 const USER_INFO_KEY = 'currentUserInfo';
 
-// Função para gerar uma chave única para as solicitações de um usuário
-// Usaremos o nome, telefone e email como identificador único do usuário
 function getUserRequestsKey(name, phone, email) {
-    // Limpa o nome, telefone e email para criar uma chave válida e consistente
     const cleanName = name.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
     const cleanPhone = phone.replace(/[^0-9]/g, '');
-    const cleanEmail = email.replace(/[^a-zA-Z0-9.\-@]/g, '').toLowerCase(); // Limpa e-mail, mantendo caracteres válidos para e-mail
-    return `userRequests_${cleanName}_${cleanPhone}_${cleanEmail}`; // Chave mais robusta
+    const cleanEmail = email.replace(/[^a-zA-Z0-9.\-@]/g, '').toLowerCase();
+    return `userRequests_${cleanName}_${cleanPhone}_${cleanEmail}`;
 }
 
-// Funções para carregar/salvar informações pessoais do usuário
 function loadUserInfo() {
     try {
         const storedInfo = localStorage.getItem(USER_INFO_KEY);
@@ -39,19 +34,18 @@ function saveUserInfo() {
         name: userData.name,
         address: userData.address,
         phone: userData.phone,
-        email: userData.email, // NOVO: Salva o e-mail
+        email: userData.email,
         familyMembers: userData.familyMembers,
         hasChildren: userData.hasChildren,
         children: userData.children
     }));
 }
 
-// Funções para carregar/salvar as solicitações ESPECÍFICAS deste usuário
 function loadUserSpecificRequests() {
-    if (!userData.name || !userData.phone || !userData.email) { // NOVO: Verifica o email também
-        return []; // Não pode carregar solicitações se não tem as infos completas do usuário
+    if (!userData.name || !userData.phone || !userData.email) {
+        return [];
     }
-    const key = getUserRequestsKey(userData.name, userData.phone, userData.email); // NOVO: Passa o email
+    const key = getUserRequestsKey(userData.name, userData.phone, userData.email);
     try {
         const storedRequests = localStorage.getItem(key);
         return storedRequests ? JSON.parse(storedRequests) : [];
@@ -62,16 +56,14 @@ function loadUserSpecificRequests() {
 }
 
 function saveUserSpecificRequests(requests) {
-    if (!userData.name || !userData.phone || !userData.email) { // NOVO: Verifica o email também
+    if (!userData.name || !userData.phone || !userData.email) {
         console.warn("Não é possível salvar solicitações sem informações completas de nome, telefone e e-mail do usuário.");
         return;
     }
-    const key = getUserRequestsKey(userData.name, userData.phone, userData.email); // NOVO: Passa o email
+    const key = getUserRequestsKey(userData.name, userData.phone, userData.email);
     localStorage.setItem(key, JSON.stringify(requests));
 }
 
-
-/* Sistema de abas */
 function openTab(tabId, element) {
     const tabContents = document.querySelectorAll('.tab-content');
     tabContents.forEach(tab => tab.classList.remove('active'));
@@ -83,13 +75,12 @@ function openTab(tabId, element) {
     if (element) {
         element.classList.add('active');
     }
-    // Ao abrir a aba de informações pessoais (tab1), carregamos os dados do usuário
+
     if (tabId === 'tab1') {
         loadAndPopulatePersonalInfo();
     }
 }
 
-/* Adiciona campo para idades das crianças */
 let childCount = 0;
 function addChildField(age = '') {
     childCount++;
@@ -112,10 +103,8 @@ function addChildField(age = '') {
     });
 }
 
-/* Valida formulário informações pessoais */
 function validatePersonalInfo() {
     const form = document.getElementById('personalInfoForm');
-    // Adiciona o campo 'email' à lista de inputs obrigatórios
     const inputs = form.querySelectorAll('input[required], select[required], textarea[required], #email'); 
     let isValid = true;
 
@@ -128,7 +117,6 @@ function validatePersonalInfo() {
         }
     });
 
-    // Adição da validação de formato de e-mail
     const emailInput = document.getElementById('email');
     if (emailInput && emailInput.value.trim() !== '') {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -136,7 +124,7 @@ function validatePersonalInfo() {
             isValid = false;
             emailInput.style.borderColor = 'var(--error-color)';
             alert('Por favor, insira um endereço de e-mail válido.');
-            return; // Sai da função para não mostrar o alerta genérico
+            return;
         } else {
             emailInput.style.borderColor = '';
         }
@@ -178,7 +166,7 @@ function validatePersonalInfo() {
         }
 
         if (isValid) {
-            saveUserInfo(); // Salva as informações pessoais do usuário
+            saveUserInfo();
             const tabButtons = document.querySelectorAll('.tab-btn');
             openTab('tab2', tabButtons[1]);
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -188,14 +176,13 @@ function validatePersonalInfo() {
     }
 }
 
-/* Função para salvar solicitação no admin */
 function saveRequestToAdmin(newRequest) {
     let adminRequests = JSON.parse(localStorage.getItem('donationRequestsAdmin')) || [];
 
     adminRequests.unshift({
         ...newRequest,
         userName: userData.name,
-        userEmail: userData.email, // NOVO: Inclui o e-mail para o admin
+        userEmail: userData.email,
         userAddress: userData.address,
         userPhone: userData.phone,
         familyMembers: userData.familyMembers,
@@ -206,14 +193,13 @@ function saveRequestToAdmin(newRequest) {
     localStorage.setItem('donationRequestsAdmin', JSON.stringify(adminRequests));
 }
 
-// Função para carregar e pré-preencher informações pessoais (chamada ao carregar e ao voltar para a aba 1)
 function loadAndPopulatePersonalInfo() {
-    loadUserInfo(); // Carrega os dados do Local Storage para userData
+    loadUserInfo();
 
     document.getElementById('nome').value = userData.name;
     document.getElementById('endereco').value = userData.address;
     document.getElementById('celular').value = userData.phone;
-    document.getElementById('email').value = userData.email; // NOVO: Preenche o campo de e-mail
+    document.getElementById('email').value = userData.email;
     document.getElementById('integrantes').value = userData.familyMembers;
 
     document.getElementById('tem_criancas').checked = userData.hasChildren;
@@ -271,8 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Verifica se as informações pessoais foram preenchidas (incluindo o e-mail)
-        if (!userData.name || !userData.address || !userData.phone || !userData.email) { // NOVO: Verifica o email
+        if (!userData.name || !userData.address || !userData.phone || !userData.email) {
             Toastify({ text: "Por favor, preencha todas as suas informações pessoais na primeira aba antes de enviar a solicitação.", duration: 5000, gravity: "top", position: "right", backgroundColor: "#ffc371" }).showToast();
             openTab('tab1', document.querySelectorAll('.tab-btn')[0]);
             return;
@@ -365,7 +350,6 @@ function showProfileSection() {
     document.getElementById('profileAddress').textContent = userData.address || "Não preenchido";
     document.getElementById('profilePhone').textContent = userData.phone || "Não preenchido";
 
-    // NOVO: Exibe o e-mail no perfil se o elemento existir
     const profileEmailElement = document.getElementById('profileEmail');
     if (profileEmailElement) {
         profileEmailElement.textContent = userData.email || "Não preenchido";
@@ -468,7 +452,7 @@ function updateRequestsList() {
                 const userName = userData.name || 'N/A';
                 const userPhone = userData.phone || 'N/A';
                 const userAddress = userData.address || 'N/A';
-                const userEmail = userData.email || 'N/A'; // NOVO: Pega o email
+                const userEmail = userData.email || 'N/A';
                 const familyMembers = userData.familyMembers || 1;
 
                 let childrenDetails = '';

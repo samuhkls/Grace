@@ -79,31 +79,6 @@
             </table>
         </div>
 
-        <div id="inventory-out" class="hidden">
-            <table>
-                <thead>
-                <tr>
-                    <th>Tipo</th> <th>Descrição</th> <th>Quantidade</th> <th>Data</th> </tr>
-                </thead>
-                <tbody>
-                <tr th:if="${#lists.isEmpty(estoque)}"> <td colspan="4" style="text-align: center;">Sem dados de saldo de estoque ainda.</td>
-                </tr>
-                <tr><td colspan="4" style="text-align: center;">(Conteúdo de Saídas/Saldo a definir)</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div id="inventory-donated" class="hidden">
-            <table><thead><tr><th>Tipo</th><th>Item</th><th>Quantidade</th><th>Beneficiário</th><th>Data</th><th>Responsável</th></tr></thead>
-                <tbody><tr><td colspan="6" style="text-align: center;">Sem dados ainda</td></tr></tbody>
-            </table>
-        </div>
-
-        <div id="received-requests" class="hidden">
-            <table><thead><tr><th>ID</th><th>Solicitante</th><th>Email</th><th>Tipo</th><th>Descrição</th><th>Data</th><th>Status</th><th>Ações</th></tr></thead>
-                <tbody><tr><td colspan="8" style="text-align: center;">Sem solicitações</td></tr></tbody>
-            </table>
-        </div>
     </section>
 
     <div class="btn-new-request-container" style="text-align: center; margin-top: 20px;">

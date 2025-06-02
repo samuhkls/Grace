@@ -50,7 +50,7 @@ public class MappingController {
         return "receptor";
     }
 
-    @GetMapping("/redefinir-senha")
+    @GetMapping("/redefinirSenha")
     public String redefinirSenha() {
         return "redefinirSenha";
     }

@@ -1,4 +1,4 @@
- // Mobile menu toggle
+
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
         
@@ -9,7 +9,7 @@
                 : '<i class="fas fa-bars"></i>';
         });
         
-        // Header scroll effect
+
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
             if (window.scrollY > 50) {
@@ -19,12 +19,11 @@
             }
         });
         
-        // Function for online donation
+
         function doarOnline() {
             window.open('https://wa.me/5511967882241?text=Olá,%20gostaria%20de%20fazer%20uma%20doação%20para%20a%20Igreja%20Nova%20Sião', '_blank');
         }
-        
-        // Animate elements on scroll
+
         const animateOnScroll = () => {
             const elements = document.querySelectorAll('.animated');
             
@@ -40,4 +39,4 @@
         };
         
         window.addEventListener('scroll', animateOnScroll);
-        animateOnScroll(); // Run once on page load
+        animateOnScroll();
